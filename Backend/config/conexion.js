@@ -1,8 +1,8 @@
 const mysql=require('mysql');
 const conexion=mysql.createConnection({
     host: 'localhost',
-    user:'root',
-    password:'Noel19Ch@con',//Aqui se escribe su nombre de usuario de SQL
+    user:'ajacobo',
+    password:'123456',//Aqui se escribe su nombre de usuario de SQL
     port:3306,
     database: 'db_datos'
 

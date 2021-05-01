@@ -1,0 +1,56 @@
+
+<mat-toolbar>
+    <span>Inicio de Sesion</span>
+  </mat-toolbar>
+  <mat-grid-list cols="1" rowHeight="180px">
+    <mat-grid-tile>
+
+        <img src="https://i0.wp.com/www.silviagaliana.com/wp-content/uploads/2014/04/Fondo-Super-Mario-para-Twitter.jpg?resize=1500%2C500">
+        
+        <img>
+
+    </mat-grid-tile>
+    
+  </mat-grid-list>
+
+  <mat-grid-list cols="1" rowHeight="315px">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Inicio de sesion</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Nombre de Usuario</mat-label>
+                      <input matInput placeholder="Ingrese su nombre de usuario" value="">
+                    </mat-form-field>
+                  
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Contraseña</mat-label>
+                      <input type="password" matInput placeholder="Ingrese su Contraseña">
+                    </mat-form-field>
+                  </form>
+                  
+            </mat-card-content>
+            <mat-card-actions>
+              <button  mat-raised-button color="primary">Acceder</button>
+              <button mat-raised-button color="primary">Crear una nueva cuenta</button>
+            </mat-card-actions>
+          </mat-card>          
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="1" rowHeight="180px">
+    <mat-grid-tile>
+
+        <img src="https://i0.wp.com/www.silviagaliana.com/wp-content/uploads/2014/04/Fondo-Super-Mario-para-Twitter.jpg?resize=1500%2C500">
+        
+        <img>
+
+    </mat-grid-tile>
+    
+  </mat-grid-list>

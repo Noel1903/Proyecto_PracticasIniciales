@@ -1,5 +1,5 @@
 const rutas = require('express').Router();
-const conexion = require('./config/conexion');
+const conexion = require('../config/conexion');
 
 //asignando rutas
 //obtener usuarios
