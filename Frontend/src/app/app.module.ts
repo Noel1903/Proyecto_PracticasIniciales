@@ -17,12 +17,17 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 const router:Routes=[
   {
     path:'login',
     component:LoginComponent
     
+  },
+  {
+    path:'registro',
+    component:RegistroComponent
   },
   {
     path:'main',
@@ -34,7 +39,8 @@ const router:Routes=[
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    RegistroComponent
   ],
   imports: [
     MatSidenavModule,
