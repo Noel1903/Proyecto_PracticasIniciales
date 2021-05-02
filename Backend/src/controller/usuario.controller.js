@@ -37,4 +37,20 @@ usuariocontroller.verificausuario=(req,res)=>{
         }
     })
 }
+
+usuariocontroller.crearUsuario=(req,res)=>{
+
+    res.json({text:"Creando usuario"})
+    let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.username}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}',${req.body.fecha})`;
+    console.log(sql);
+    conexion.query(sql,(err,rows,fields)=>{
+            if (err) throw err
+            
+            else{
+                
+                return res.status(200).json(rows);
+            }
+        })
+    }
+
 module.exports = usuariocontroller;
