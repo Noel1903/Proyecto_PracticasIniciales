@@ -8,8 +8,10 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
+
 export class RegistroComponent implements OnInit {
   form:FormGroup;
+  roll=localStorage.getItem("Roll")
   constructor(private fb:FormBuilder, 
     private authService: AuthServiceService, 
     private router: Router,private http:HttpService) {
@@ -21,6 +23,7 @@ export class RegistroComponent implements OnInit {
         contraseña: ['',Validators.required],
         biografia: ['',Validators.required],
         fecha: ['',Validators.required],
+        roll:['user'],
     });
      }
   ngOnInit(): void {
@@ -40,4 +43,18 @@ export class RegistroComponent implements OnInit {
 
   }
 
+  regresar(){
+    if(!this.authService.isLoggedIn()){
+      if(localStorage.getItem("id_token")!=""){
+        this.router.navigate(['/gestionusuario']);
+      }else{
+       
+        this.router.navigate(['/login']);
+      }
+     
+      }else{
+        
+        this.router.navigate(['/login']);
+      }
+  }
 }

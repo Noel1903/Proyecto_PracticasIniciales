@@ -1,18 +1,20 @@
 
  <div>
-
-
  <mat-toolbar>
     <button mat-icon-button class="example-icon"  (click)="drawer.toggle()" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Pantalla De consolas</span>
-    
   </mat-toolbar>
   <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
-        
         <mat-list>
+          <mat-list-item>
+            <button  mat-raised-button color="green" (click)="main()"  aria-label="Example icon button with a home icon">
+              <mat-icon>home</mat-icon>
+            </button>
+          </mat-list-item>
+          <mat-divider></mat-divider>
             <mat-list-item>
               <button  mat-raised-button color="primary" (click)="gestionusuario();">gestion usuario</button>
             </mat-list-item>

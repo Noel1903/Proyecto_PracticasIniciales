@@ -28,4 +28,5 @@ router.post('/verificausuario',usuariocontroller.verificausuario)
 router.post('/crearUsuario',usuariocontroller.crearUsuario)
 router.post('/token',usuariocontroller.tocken)
 router.post('/logout',usuariocontroller.logout)
+router.delete('/eliminausuario',authenticateJWT,usuariocontroller.eliminausuario)
 module.exports =router;

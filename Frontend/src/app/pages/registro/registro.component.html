@@ -14,16 +14,20 @@
 		<div class="form__top">
 			<h2>Formulario <span>Registro</span></h2>
 		</div>		
-		<form  [formGroup]="form" class="form__reg" action="">
-			<input class="input" type="text" placeholder="&#128113;   Nombre de Usuario" name="username" formControlName="username" required autofocus>
-            <input class="input" type="text" placeholder="&#128100;  Nombres" name="nombre" formControlName="nombre"required>
-            <input class="input" type="text" placeholder="&#128100;  Apellidos" name="apellido" formControlName="apellido" required>
-            <input class="input" type="text" placeholder="&#128100;  Fecha de Nacimiento" name="fecha" formControlName="fecha" required>
-            <input class="input" type="email" placeholder="&#9993;  Email" name="correo" formControlName="correo"  required>
-            <input class="input" type="text" placeholder="&#128222;  contraseña" name="contraseña" formControlName="contraseña" required>
-            <div class="btn__form">
-            	<input type="button" class="btn__submit" (click)="Crearusuario()"  value="REGISTRAR">
-            	<input   class="btn__reset" type="reset" value="LIMPIAR">	
+		<form  [formGroup]="form" class="form-group" action="">
+			<input class="input" class="form-control mb-3" type="text" placeholder="&#128113;   Nombre de Usuario" name="username" formControlName="username" required autofocus>
+            <input class="input" class="form-control mb-3" type="text" placeholder="&#128100;  Nombres" name="nombre" formControlName="nombre"required>
+            <input class="input" class="form-control mb-3" type="text" placeholder="&#128100;  Apellidos" name="apellido" formControlName="apellido" required>
+            <input class="input" class="form-control mb-3" type="text" placeholder="&#128100;  Fecha de Nacimiento" name="fecha" formControlName="fecha" required>
+            <input class="input" class="form-control mb-3" type="email" placeholder="&#9993;  Email" name="correo" formControlName="correo"  required>
+            <input class="input" class="form-control mb-3" type="text" placeholder="&#128222;  contraseña" name="contraseña" formControlName="contraseña" required>
+            <select *ngIf="roll==='admin'" class="form-control" name="roll"formControlName="roll" >
+				<option value="admin">administrador</option>
+				<option value="user"> usuario normal</option>
+			  </select>
+			<div class="btn__form">
+            	<input type="reset" class="btn__submit" (click)="Crearusuario()"  value="REGISTRAR">
+            	<input   class="btn__reset" type="reset" (click)="regresar()" value="regresar">	
             </div>
 		</form>
 	</div>

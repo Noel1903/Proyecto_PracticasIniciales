@@ -1,3 +1,4 @@
+import { GestionUsuarioComponent } from './pages/gestion-usuario/gestion-usuario.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
@@ -20,6 +21,7 @@ import {MatListModule} from '@angular/material/list';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 const router:Routes=[
   {
     path:'login',
@@ -34,6 +36,10 @@ const router:Routes=[
     path:'main',
     component:MainComponent
   },
+  {
+    path:'gestionusuario',
+    component:GestionUsuarioComponent
+  }
  
 ]
 
@@ -42,7 +48,8 @@ const router:Routes=[
     AppComponent,
     LoginComponent,
     MainComponent,
-    RegistroComponent
+    RegistroComponent,
+    GestionUsuarioComponent
   ],
   imports: [
     MatSidenavModule,
@@ -60,7 +67,6 @@ const router:Routes=[
     MatDividerModule,MatListModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

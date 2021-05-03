@@ -3,18 +3,7 @@ html {
     font-family: 'Lato', sans-serif;
 }
 
-body {
-	background-color: red;
-}
 
-.container {
-	max-width: 450px;
-	height: auto;
-	background-color: #EFEFEF;
-	margin: 5% auto;
-	padding-bottom: 1rem;
-	
-}
 
 .form__top {
 	width: 100%;
@@ -31,7 +20,7 @@ body {
 }
 
 h2 span {
-	color: red;
+	color:green;
 }
 
 .form__reg {
@@ -48,7 +37,7 @@ h2 span {
 }
 
 .input, .btn__submit, .btn__reset{
-	background-color: #EFEFEF;
+
 	padding: .5rem;
 	margin: .5rem 0;
 	border: none;
@@ -63,7 +52,7 @@ h2 span {
 .btn__submit, .btn__reset {
 	width: 40%;
 	border-bottom: none;
-	background-color: red;
+	background-color:green;
 	color: white;
 }
 

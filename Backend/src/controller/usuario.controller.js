@@ -25,8 +25,8 @@ usuariocontroller.obtieneusuarios=(req,res)=>
     })
 }
 usuariocontroller.verificausuario=(req,res)=>{
-    var acceso,usuario,correo;
-    let sql="select count(*) acceso ,username,correo from tb_users where username='"+ req.body.usuername+"' and contraseña='"+req.body.contraseña+"'";
+    var acceso,usuario,correo,roll;
+    let sql="select count(*) acceso ,username,correo,roll from tb_users where username='"+ req.body.usuername+"' and contraseña='"+req.body.contraseña+"'";
  conexion.query(sql,(err,rows,fields)=>{
         if (err) throw err
         else{
@@ -36,14 +36,15 @@ usuariocontroller.verificausuario=(req,res)=>{
                  acceso=element.acceso;
                  usuario=element.username;
                  correo=element.correo;
+                 roll=element.roll
              });
              
         
 
            
             if(acceso==1){
-                const accessToken = jwt.sign({ username: usuario, correo: correo }, accessTokenSecret, { expiresIn: '30m' });
-                const refreshToken = jwt.sign({ username: usuario, correo: correo }, refreshTokenSecret);
+                const accessToken = jwt.sign({ username: usuario, correo: correo,roll:roll }, accessTokenSecret, { expiresIn: '30m' });
+                const refreshToken = jwt.sign({ username: usuario, correo: correo,roll:roll }, refreshTokenSecret);
                 refreshTokens.push(refreshToken);
                 return res.status(200).json({
                     accessToken,
@@ -59,7 +60,7 @@ usuariocontroller.crearUsuario=(req,res)=>{
 
 
     //res.json({text:"Creando usuario"})
-    let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.nombre}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}',${req.body.fecha})`;
+    let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha,roll) values ('${req.body.nombre}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}',${req.body.fecha},'${req.body.roll}')`;
 
     //let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.nombre}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}','${req.body.fecha}')`;
 
@@ -73,7 +74,7 @@ usuariocontroller.crearUsuario=(req,res)=>{
                 return res.json("Usuario Creado Con exito");
             }
         })
-    }
+}
 usuariocontroller.tocken=(req,res)=>{
     const { token } = req.body;
 
@@ -102,5 +103,29 @@ usuariocontroller.logout=(req,res)=>{
     refreshTokens = refreshTokens.filter(token => t !== token);
 
     res.send("Logout successful");
+}
+usuariocontroller.eliminausuario=(req,res)=>{
+   
+    //res.json({text:"Creando usuario"})
+    let sql=`delete from tb_users where id_usuario =${req.body.id_usuario}`;
+
+    //let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.nombre}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}','${req.body.fecha}')`;
+
+    console.log(sql);
+    conexion.query(sql,(err,rows,fields)=>{
+            if (err)
+               
+            res.status(500).json(err);          
+            else{
+                let sql = 'select * from tb_users'
+                conexion.query(sql,(err,rows,fields)=>{
+                    if(err) throw err;
+                    else{
+                        res.json(rows)
+                    }
+                })
+                
+            }
+        }) 
 }
 module.exports = usuariocontroller;

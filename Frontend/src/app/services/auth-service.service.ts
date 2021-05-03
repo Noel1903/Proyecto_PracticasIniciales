@@ -11,18 +11,22 @@ export class AuthServiceService {
   constructor(private http: HttpClient) { }
 
   public setSession(authResult) {
+
   const expiresAt = this.getDecodedAccessToken(authResult.accessToken).exp;
-  const creationat= this.getDecodedAccessToken(authResult.accessToken).iat
+  const creationat= this.getDecodedAccessToken(authResult.accessToken).iat;
+  const roll= this.getDecodedAccessToken(authResult.accessToken).roll
 
   localStorage.setItem('id_token', authResult.accessToken);
   localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   localStorage.setItem("create_at", JSON.stringify(creationat.valueOf()) );
-
+  localStorage.setItem("Roll",roll);
 }          
 
 logout() {
   localStorage.removeItem("id_token");
   localStorage.removeItem("expires_at");
+  localStorage.removeItem("create_at");
+  localStorage.removeItem("Roll");
 }
 
 public isLoggedIn() {

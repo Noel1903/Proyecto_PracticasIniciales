@@ -1,0 +1,158 @@
+   <mat-toolbar>
+    <button mat-icon-button class="example-icon"  (click)="drawer2.toggle()" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+       <div class="container">
+           <div class="row">
+               <div class=" col-md-11">
+                <span>Pantalla De usuario</span>
+               </div>
+               <div class="col-md-1">
+                <button *ngIf="roll==='admin'"  (click)="nuevousuario()" type="button" class="btn btn-success btn-rounded btn-sm waves-effect waves-light">Crear nuevo usuario</button>
+
+               </div>
+           </div>
+       </div>
+         </mat-toolbar>
+     <mat-drawer-container class="example-container" autosize>
+       <mat-drawer #drawer2 class="example-sidenav" mode="side">
+           
+           <mat-list>
+            <mat-list-item>
+                <button  mat-raised-button color="green" (click)="main()" aria-label="Example icon button with a home icon">
+                  <mat-icon>home</mat-icon>
+                </button>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+               <mat-list-item>
+                 <button  mat-raised-button color="primary" (click)="gestionusuario();">gestion usuario</button>
+               </mat-list-item>
+               <mat-divider></mat-divider>
+               <mat-list-item>
+               <button  mat-raised-button color="primary" (click)="biblioteca();">Biblioteca de juegos</button>
+             </mat-list-item>
+               <mat-divider></mat-divider>
+               <mat-list-item>
+               <button  mat-raised-button color="warn" (click)="salir();">salir</button>
+             </mat-list-item>
+             </mat-list>       
+       </mat-drawer>
+       
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div *ngIf="roll==='admin'">
+        <div class="col-md-12" *ngFor="let usuario of usuarios">
+            <!--begin:: Widgets/User Progress -->
+            <div class="m-portlet m-portlet--full-height ">
+                <div class="m-portlet__body">
+                   
+                        <div class="tab-pane active" id="m_widget4_tab1_content">
+                            <div class="m-widget4 m-widget4--progress">
+                                <div class="m-widget4__item">
+                                    <div class="m-widget4__img m-widget4__img--pic">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                    </div>
+                                    <div class="m-widget4__info" style="width: auto; margin-right: 50px;">
+                                        <span class="m-widget4__title">
+                                            Nombre
+                                        </span>
+                                        <br>
+                                        <span class="m-widget4__sub">
+                                            {{usuario.nombre}}
+                                        </span>
+                                        
+                                    </div>
+                                    <div class="m-widget4__info" style="width: auto; margin-right: 50px;">
+                                        <span class="m-widget4__title">
+                                            apellido
+                                        </span>
+                                        <br>
+                                        <span class="m-widget4__sub">
+                                            {{usuario.apellido}}
+                                        </span>
+                                        
+                                    </div>
+                                    <div class="m-widget4__info" style="width: 100px; margin-right: 50px;">
+                                        <span class="m-widget4__title">
+                                            Usuario
+                                        </span>
+                                        <br>
+                                        <span class="m-widget4__sub">
+                                            {{usuario.username}}
+                                        </span>
+                                        
+                                    </div>
+                                    <div class="m-widget4__info" style="width: 100px; margin-right: 50px;">
+                                        <span class="m-widget4__title">
+                                            Correo
+                                        </span>
+                                        <br>
+                                        <span class="m-widget4__sub">
+                                            {{usuario.correo}}
+                                        </span>
+                                        
+                                    </div>
+
+                                    <div class="m-widget4__info" >
+                                        <span class="m-widget4__title">
+                                            Tipo de usuario
+                                        </span>
+                                        <br>
+                                        <span class="m-widget4__sub">
+                                            {{usuario.Roll}}
+                                        </span>
+                                        
+                                    </div>
+                                  
+                                    <div class="m-widget4__info">
+                                        <a class="m-btn mr-4 m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                                            Editar
+                                        </a>
+                                    </div>
+                                    <div class="m-widget4__ext">
+                                        <a  (click)="eliminar(usuario.id_usuario)" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-danger">
+                                            Eliminar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <!--end:: Widgets/User Progress -->
+        </div>
+        
+</div>
+
+
+   </mat-drawer-container>
+   <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form  [formGroup]="form" class="form-group" action="">
+                <input class="input" class="form-control mb-3" type="text" placeholder="&#128113;   Nombre de Usuario" name="username" formControlName="username" required autofocus>
+                <input class="input" class="form-control mb-3" type="text" placeholder="&#128100;  Nombres" name="nombre" formControlName="nombre"required>
+                <input class="input" class="form-control mb-3" type="text" placeholder="&#128100;  Apellidos" name="apellido" formControlName="apellido" required>
+                <input class="input" class="form-control mb-3" type="text" placeholder="&#128100;  Fecha de Nacimiento" name="fecha" formControlName="fecha" required>
+                <input class="input" class="form-control mb-3" type="email" placeholder="&#9993;  Email" name="correo" formControlName="correo"  required>
+                <input class="input" class="form-control mb-3" type="text" placeholder="&#128222;  contraseña" name="contraseña" formControlName="contraseña" required>
+                <select *ngIf="roll==='admin'" class="form-control" name="roll"formControlName="roll" >
+                    <option value="admin">administrador</option>
+                    <option value="user"> usuario normal</option>
+                  </select>
+            </form>
+        </div>
+        <div class="modal-footer">
+        
+          <button type="button" class="btn btn-primary">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
