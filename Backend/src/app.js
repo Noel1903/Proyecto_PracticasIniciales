@@ -1,10 +1,11 @@
 
 const conexion = require('../config/conexion');
 const express = require("express");
-const bodyparse = require("body-parser");
 const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 app.set("port",3000)
 app.use(cors());
 app.use(express.json({limit:'100mb'}))

@@ -18,6 +18,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const router:Routes=[
   {
@@ -32,7 +33,8 @@ const router:Routes=[
   {
     path:'main',
     component:MainComponent
-  }
+  },
+ 
 ]
 
 @NgModule({
@@ -55,7 +57,10 @@ const router:Routes=[
     MatButtonModule,
     HttpClientModule,
     MatIconModule,
-    MatDividerModule,MatListModule
+    MatDividerModule,MatListModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
