@@ -7,7 +7,6 @@ export const environment = {
   endpoint:"http://localhost:3000",
   user:"",
   pass:"",
-  logon:"",
 };
 
 /*
