@@ -57,12 +57,12 @@ usuariocontroller.verificausuario=(req,res)=>{
 }
 usuariocontroller.crearUsuario=(req,res)=>{
 
-<<<<<<< HEAD
+
     //res.json({text:"Creando usuario"})
     let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.username}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}',${req.body.fecha})`;
-=======
-    let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.nombre}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}','${req.body.fecha}')`;
->>>>>>> d69d7f3ee1190dd56907ce7dffae73bbf5998549
+
+    //let sql=`insert into tb_users(nombre,apellido,username,correo,contraseña,biografia,fecha) values ('${req.body.nombre}','${req.body.apellido}','${req.body.username}','${req.body.correo}','${req.body.contraseña}','${req.body.biografia}','${req.body.fecha}')`;
+
     console.log(sql);
     conexion.query(sql,(err,rows,fields)=>{
             if (err) throw err          
