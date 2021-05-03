@@ -12,4 +12,5 @@ app.use(express.json({limit:'100mb'}))
 app.use(express.urlencoded({limit: '100mb', extended: true}))
 app.use(morgan('dev'))
 app.use(require("./routes/usuario.routes"))
+app.use(require("./routes/juego.routes"))
 module.exports =app;
