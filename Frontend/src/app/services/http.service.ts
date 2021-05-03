@@ -29,5 +29,23 @@ export class HttpService {
      return err
    }
   }
+  creausuario(formulario:any):Observable<any>{
+    
+    console.log(formulario)
+    const options = {
+      headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     }
+   };
+   const url = environment.endpoint+"/crearUsuario";
+   try{
+     console.log(JSON.stringify(formulario));
+     return this.http.post<any>(url, JSON.stringify(formulario),options);
+   }
+   catch(err){
+     return err
+   }
+  }
 }
 

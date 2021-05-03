@@ -28,14 +28,11 @@ export class MainComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-
   salir(){
     this.authService.logout();
     this.router.navigate(['/login']);
   }
   gestionusuario(){
-
   }
   biblioteca(){}
-
 }
