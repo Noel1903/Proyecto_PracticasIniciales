@@ -1,5 +1,5 @@
-create database if not exists db_datos;
-use db_datos;
+create database if not exists db_datos001;
+use db_datos001;
 SET FOREIGN_KEY_CHECKS=0;
 create table tb_users(
 	id_usuario int not null auto_increment primary key,
@@ -9,16 +9,17 @@ create table tb_users(
     correo varchar(45),
     contraseña varchar(45),
     biografia varchar(45),
-    fecha date
+    fecha date,
+    roll varchar(50)
 );
-insert into tb_users (nombre,apellido,username,correo,contraseña,biografia,fecha) values ('admin','admin','admin','admin@admin.com','123','soy el admin',1999);
+insert into tb_users (nombre,apellido,username,correo,roll,contraseña,biografia,fecha) values ('Administrador','Proyecto','admin','admin@admin.com','admin','123','soy el admin',12/12/1999);
 create table tb_juegos(
 	id_juego int not null auto_increment primary key,
     id_consola int not null,
     nombre varchar(45),
     descripcion varchar(45),
-    cartucho varchar(45),
-    fecha date,
+    cartucho varchar(100),
+    fecha varchar(45),
     FOREIGN KEY (id_consola) references tb_consola(id_consola)
 );
 
