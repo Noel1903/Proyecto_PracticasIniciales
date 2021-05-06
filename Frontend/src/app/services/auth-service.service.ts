@@ -15,11 +15,12 @@ export class AuthServiceService {
   const expiresAt = this.getDecodedAccessToken(authResult.accessToken).exp;
   const creationat= this.getDecodedAccessToken(authResult.accessToken).iat;
   const roll= this.getDecodedAccessToken(authResult.accessToken).roll
-
+   const id_usuario = this.getDecodedAccessToken(authResult.accessToken).id_usuario;
   localStorage.setItem('id_token', authResult.accessToken);
   localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   localStorage.setItem("create_at", JSON.stringify(creationat.valueOf()) );
   localStorage.setItem("Roll",roll);
+  localStorage.setItem("id_usuario",id_usuario)
 }          
 
 logout() {
@@ -27,6 +28,7 @@ logout() {
   localStorage.removeItem("expires_at");
   localStorage.removeItem("create_at");
   localStorage.removeItem("Roll");
+  localStorage.removeItem("id_usuario");
 }
 
 public isLoggedIn() {

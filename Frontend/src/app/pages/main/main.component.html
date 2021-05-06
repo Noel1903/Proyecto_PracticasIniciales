@@ -28,5 +28,31 @@
           </mat-list-item>
           </mat-list>       
     </mat-drawer>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mt-4 " *ngFor="let juego of juegos" >
+            <div class="card user-card">
+                <div class="card-header">
+                    <h5>{{juego.nombre}}</h5>
+                </div>
+                <div class="card-block">
+                   
+                        <img src="{{juego.cartucho}}" class="card-img-top" alt="User-Profile-Image">
+                    
+                        <hr>
+                    <p class="text-muted">{{juego.descripcion}}</p>
+                    <hr>                   
+                    <div class="row bg-dark text-white justify-content-center user-social-link">
+                        <div class="col-auto mt-3 mb-3"><button type="button" class="btn btn-success">Agregar a mi Biblioteca</button></div>
+                        <div class="col-auto mb-3"><button type="button" class="btn btn-primary">Publicaciones</button></div>
+                        <div *ngIf="roll==='admin'" class="col-auto mb-3"><button type="button" class="btn btn-danger">Gestionar juego</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
 </mat-drawer-container>
 </div>

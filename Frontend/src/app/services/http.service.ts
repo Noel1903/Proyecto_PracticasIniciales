@@ -66,6 +66,40 @@ export class HttpService {
    }
   }
 
+  obtieneusuario(id_usuario:string):Observable<any>{
+    const options = {
+      headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json',
+       'Authorization':'Bearer '+localStorage.getItem("id_token")
+     }
+   };
+   const url = environment.endpoint+"/obtieneusuario/"+id_usuario;
+   try{
+    
+     return this.http.get<any>(url,options);
+   }
+   catch(err){
+     return err
+   }
+  }
+  obtienejuegos():Observable<any>{
+    const options = {
+      headers: {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json',
+       'Authorization':'Bearer '+localStorage.getItem("id_token")
+     }
+   };
+   const url = environment.endpoint+"/juegos";
+   try{
+    
+     return this.http.get<any>(url,options);
+   }
+   catch(err){
+     return err
+   }
+  }
 
   eliminarusuario(id_usuario:number):Observable<any>{
     const options = {

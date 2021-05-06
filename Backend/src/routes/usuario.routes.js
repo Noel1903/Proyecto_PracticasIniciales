@@ -23,7 +23,7 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 router.get('/usuarios',authenticateJWT,usuariocontroller.usuarios)
-router.get('/obtieneusuario/:id_usuario',usuariocontroller.obtieneusuarios)
+router.get('/obtieneusuario/:id_usuario',authenticateJWT,usuariocontroller.obtieneusuarios)
 router.post('/verificausuario',usuariocontroller.verificausuario)
 router.post('/crearUsuario',usuariocontroller.crearUsuario)
 router.post('/token',usuariocontroller.tocken)

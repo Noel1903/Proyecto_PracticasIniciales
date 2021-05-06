@@ -2,7 +2,7 @@ const conexion = require('../../config/conexion');
 const juegocontroller = {};
 
 juegocontroller.juegos = (req,res)=>{
-    let sql = 'select * from tb_juegos'
+    let sql = 'SELECT `tb_juegos`.*, `tb_consola`.`nombre` as `nombre_consola` FROM `tb_juegos` LEFT JOIN `tb_consola` ON `tb_juegos`.`id_consola` = `tb_consola`.`id_consola`'
     conexion.query(sql,(err,rows,fields)=>{
         if(err) throw err;
         else{

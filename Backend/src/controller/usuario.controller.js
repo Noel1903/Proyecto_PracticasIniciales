@@ -25,8 +25,8 @@ usuariocontroller.obtieneusuarios=(req,res)=>
     })
 }
 usuariocontroller.verificausuario=(req,res)=>{
-    var acceso,usuario,correo,roll;
-    let sql="select count(*) acceso ,username,correo,roll from tb_users where username='"+ req.body.usuername+"' and contraseña='"+req.body.contraseña+"'";
+    var acceso,usuario,correo,roll,id_usuario ;
+    let sql="select count(*) acceso ,username,correo,roll,id_usuario  from tb_users where username='"+ req.body.usuername+"' and contraseña='"+req.body.contraseña+"'";
  conexion.query(sql,(err,rows,fields)=>{
         if (err) throw err
         else{
@@ -36,15 +36,16 @@ usuariocontroller.verificausuario=(req,res)=>{
                  acceso=element.acceso;
                  usuario=element.username;
                  correo=element.correo;
-                 roll=element.roll
+                 roll=element.roll;
+                 id_usuario =element.id_usuario 
              });
              
         
 
            
             if(acceso==1){
-                const accessToken = jwt.sign({ username: usuario, correo: correo,roll:roll }, accessTokenSecret, { expiresIn: '30m' });
-                const refreshToken = jwt.sign({ username: usuario, correo: correo,roll:roll }, refreshTokenSecret);
+                const accessToken = jwt.sign({ username: usuario, correo: correo,roll:roll,id_usuario  }, accessTokenSecret, { expiresIn: '30m' });
+                const refreshToken = jwt.sign({ username: usuario, correo: correo,roll:roll,id_usuario  }, refreshTokenSecret);
                 refreshTokens.push(refreshToken);
                 return res.status(200).json({
                     accessToken,

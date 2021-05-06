@@ -36,7 +36,11 @@ export class GestionUsuarioComponent implements OnInit {
     console.log(this.authService.isLoggedIn())
     if(!this.authService.isLoggedIn()){
      if(localStorage.getItem("id_token")!=""){
-      this.obtieneusuarios();
+      if(localStorage.getItem("Roll")=="admin"){
+        this.obtieneusuarios();
+      }else{
+        this.obtieneusuario(localStorage.getItem("id_usuario"));
+      }
      }else{
        alert("usted no esta logeado ")
        this.router.navigate(['/login']);
@@ -75,6 +79,19 @@ export class GestionUsuarioComponent implements OnInit {
       (error)=>{
       }
       )
+  }
+
+  obtieneusuario(id_usuario:string){
+    
+    
+    this.http.obtieneusuario(id_usuario).subscribe(
+      (res:any)=>{
+
+        this.usuarios=res;
+        console.log(this.usuarios)
+    },(error)=>{
+
+    })
   }
 
   eliminar(userid:number){
