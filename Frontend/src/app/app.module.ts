@@ -13,11 +13,16 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { ConsolasComponent } from './pages/consolas/consolas.component';
+import { JuegosComponent } from './pages/juegos/juegos.component';
+
+import {ConsolasService} from './services/consolas.service'
+import { JuegosService } from './services/juegos.service'
 
 const router:Routes=[
   {
@@ -40,7 +45,9 @@ const router:Routes=[
     AppComponent,
     LoginComponent,
     MainComponent,
-    RegistroComponent
+    RegistroComponent,
+    ConsolasComponent,
+    JuegosComponent
   ],
   imports: [
     MatSidenavModule,
@@ -57,7 +64,10 @@ const router:Routes=[
     MatIconModule,
     MatDividerModule,MatListModule
   ],
-  providers: [],
+  providers: [
+    ConsolasService,
+    JuegosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
