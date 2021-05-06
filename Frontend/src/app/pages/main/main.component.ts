@@ -1,4 +1,7 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
+import { Router, Routes } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   showFiller = false;
-  constructor() { }
+  constructor(private router: Router, private authService: AuthServiceService) { }
 
   ngOnInit(): void {
-  }
+  
+    console.log(this.authService.isLoggedIn())
+   if(!this.authService.isLoggedIn()){
+    if(localStorage.getItem("id_token")!=""){
 
+    }else{
+      alert("usted no esta logeado ")
+      this.router.navigate(['/login']);
+    }
+   
+    }else{
+      alert("usted no esta logeado ")
+      this.router.navigate(['/login']);
+    }
+  }
+  main(){
+    this.router.navigate(['/main']);
+  }
+  salir(){
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
+  gestionusuario(){
+    this.router.navigate(['/gestionusuario']);
+  }
+  biblioteca(){}
 }
