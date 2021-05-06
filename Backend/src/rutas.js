@@ -69,4 +69,26 @@ rutas.delete('/:id_usuario',(req,res)=>{
     })
 });
 
+//listar los juegos
+rutas.get('/juegos',(req,res)=>{
+    let sql = 'select * from tb_juegos'
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+});
+
+//listar las consolas
+rutas.get('/consolas',(req,res)=>{
+    let sql = 'select * from tb_consola'
+    conexion.query(sql,(err,rows,fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+});
+
 module.exports = rutas

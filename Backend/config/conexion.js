@@ -1,10 +1,10 @@
 const mysql=require('mysql');
 const conexion=mysql.createConnection({
     host: 'localhost',
-    user:'ajacobo',
-    password:'123456',//Aqui se escribe su nombre de usuario de SQL
-    port:3306,
-    database: 'db_datos'
+    user:'root',
+    password:'wertyuk',//Aqui se escribe su nombre de usuario de SQL
+    port:3307,
+    database: 'db_datos001'
 
 });
 conexion.connect((err)=>{
