@@ -19,16 +19,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { RegistroComponent } from './pages/registro/registro.component';
-<<<<<<< HEAD
 import { ConsolasComponent } from './pages/consolas/consolas.component';
 import { JuegosComponent } from './pages/juegos/juegos.component';
 
 import {ConsolasService} from './services/consolas.service'
 import { JuegosService } from './services/juegos.service'
-=======
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
->>>>>>> 697935714092f7d8f80fccc477f9d9b8f1637c0c
 
 const router:Routes=[
   {
@@ -57,12 +55,9 @@ const router:Routes=[
     LoginComponent,
     MainComponent,
     RegistroComponent,
-<<<<<<< HEAD
     ConsolasComponent,
-    JuegosComponent
-=======
+    JuegosComponent,
     GestionUsuarioComponent
->>>>>>> 697935714092f7d8f80fccc477f9d9b8f1637c0c
   ],
   imports: [
     MatSidenavModule,
