@@ -28,11 +28,20 @@ import { JuegosService } from './services/juegos.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 const router:Routes=[
   {
     path:'login',
     component:LoginComponent
     
+  },
+  {
+    path: 'consolas',
+    component: ConsolasComponent
+  },
+  {
+    path: 'consolas/juegos/:id',
+    component:JuegosComponent
   },
   {
     path:'registro',
@@ -57,7 +66,9 @@ const router:Routes=[
     RegistroComponent,
     ConsolasComponent,
     JuegosComponent,
-    GestionUsuarioComponent
+    GestionUsuarioComponent,
+    ConsolasComponent,
+    JuegosComponent
   ],
   imports: [
     MatSidenavModule,

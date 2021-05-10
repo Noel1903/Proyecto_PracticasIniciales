@@ -10,14 +10,7 @@ const routes: Routes = [
     pathMatch: 'full'
     
   },
-  {
-    path: 'consolas',
-    component: ConsolasComponent
-  },
-  {
-    path: 'consolas/juegos/:id',
-    component:JuegosComponent
-  }
+  
 ];
 
 @NgModule({

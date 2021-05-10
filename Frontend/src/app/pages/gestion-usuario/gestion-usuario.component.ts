@@ -81,6 +81,9 @@ export class GestionUsuarioComponent implements OnInit {
       )
   }
 
+  consolas(){
+    this.router.navigate(['/consolas']);
+  }
   obtieneusuario(id_usuario:string){
     
     

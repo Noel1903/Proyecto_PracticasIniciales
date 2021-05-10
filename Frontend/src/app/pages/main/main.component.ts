@@ -48,4 +48,8 @@ export class MainComponent implements OnInit {
     this.router.navigate(['/gestionusuario']);
   }
   biblioteca(){}
+
+  consolas(){
+    this.router.navigate(['/consolas']);
+  }
 }
